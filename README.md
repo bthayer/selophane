@@ -26,3 +26,7 @@ Eli Sarver
 github.com/elisarver
            elisarver.com  (blog, some other pages)
 ```
+
+Contributors:
+- Joe van der Wee (github.com/jvanderwee) - table objects!
+- Niels (github.com/opensource21) - generic objects!

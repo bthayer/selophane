@@ -23,11 +23,14 @@ public class FormTestObject {
     @FindBy(id = "test1")
     public WebElement webElement;
 
-    @FindBy(id = "option1")
-    public Select option1;
+    @FindBy(id = SelectFragment.ID_LOCATOR)
+    public SelectFragment selectFragment;
 
     @FindBy(id = "checkbox")
     public CheckBox checkbox;
+    
+    @FindBy(id = "table")
+    public Table table;
 
     @FindBy(tagName = "label")
     public List<Label> labels;

@@ -60,14 +60,14 @@ public class ElementDecorator implements FieldDecorator {
         }
     }
 
-    private Class getErasureClass(Field field) {
+    private Class<?> getErasureClass(Field field) {
         // Type erasure in Java isn't complete. Attempt to discover the generic
         // interfaceType of the list.
         Type genericType = field.getGenericType();
         if (!(genericType instanceof ParameterizedType)) {
             return null;
         }
-        return (Class) ((ParameterizedType) genericType).getActualTypeArguments()[0];
+        return (Class<?>) ((ParameterizedType) genericType).getActualTypeArguments()[0];
     }
 
     private boolean isDecoratableList(Field field) {
@@ -75,7 +75,7 @@ public class ElementDecorator implements FieldDecorator {
             return false;
         }
 
-        Class erasureClass = getErasureClass(field);
+        Class<?> erasureClass = getErasureClass(field);
         if (erasureClass == null) {
             return false;
         }
@@ -122,7 +122,7 @@ public class ElementDecorator implements FieldDecorator {
     @SuppressWarnings("unchecked")
     protected <T> List<T> proxyForListLocator(ClassLoader loader, Class<T> interfaceType, ElementLocator locator) {
         InvocationHandler handler;
-        if (interfaceType.getName().startsWith("org.selophane")) {
+        if (interfaceType.getAnnotation(ImplementedBy.class) != null) {
             handler = new ElementListHandler(interfaceType, locator);
         } else {
             handler = new LocatingElementListHandler(locator);

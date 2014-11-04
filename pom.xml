@@ -4,7 +4,7 @@
 
   <groupId>org.selophane</groupId>
   <artifactId>selophane</artifactId>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.2-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>Selophane</name>
@@ -38,7 +38,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <selenium.version>2.25.0</selenium.version>
+    <selenium.version>2.42.2</selenium.version>
   </properties>
 
   <dependencies>
